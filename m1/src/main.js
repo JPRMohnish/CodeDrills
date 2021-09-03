@@ -4,6 +4,8 @@ import VueCodemirror from 'vue-codemirror'
 import ScoreBoard from './components/ScoreBoard.vue'
 import Submission from './components/Submission.vue'
 import 'codemirror/lib/codemirror.css'
+import store from './store/';
+
 Vue.config.productionTip = false
 Vue.use(VueCodemirror, /* {
   options: { theme: 'base16-dark', ... },
@@ -18,6 +20,7 @@ const routes= {
 
 new Vue({
   vuetify,
+  store,
   data: {
     currentRoute: window.location.pathname
   },

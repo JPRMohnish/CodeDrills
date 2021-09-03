@@ -1,109 +1,41 @@
 <template>
   <v-app>
     <v-main>
-      <Scores msg="LeaderBoard" :headers="headers" :values="values" />
+      <Scores msg="LeaderBoard" :headers="headers" :values="values" :problems="problems" :search="search" :filterOnly="filterOnly"/>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Scores from './Scores.vue'
+import { mapGetters } from 'vuex'
 export default {
   name: 'ScoreBoard',
 
   components: {
     Scores,
   },
-
-  data: () => ({
-      headers: [],
-      values: [],
-  }),
-  created() {
-      this.headers = [
-            {
-              text: 'Rank',
-              align: 'start',
-              value: 'rank'
-            },
-            {
-            text: 'Participants',
-            sortable: false,
-            value: 'name',
-            },
-            {
-              text: 'Score',
-              value: 'score'
-            },
-            {
-              text: 'A',
-              value: 'A'
-            },
-            {
-              text: 'B',
-              value: 'B'
-            },
-            {
-              text: 'C',
-              value: 'C'
-            },
-            {
-              text: 'D',
-              value: 'D'
-            },
-            {
-              text: 'E',
-              value: 'E'
-            }
-        ];
-
-      this.values = [
-            {
-              name: 'Harry',
-              rank: 1,
-              score: 3,
-              A: 1,
-              subA: 101001,
-              B: 0,
-              subB: 101002,
-              C: 0,
-              subC: 101003,
-              D: 1,
-              subD: 101004,
-              E: 1,
-              subE: 101005
-            },
-            {
-              name: 'Ron',
-              rank: 2,
-              score: 3,
-              A: 0,
-              subA: 101011,
-              B: 1,
-              subB: 101012,
-              C: 1,
-              subC: 101013,
-              D: 1,
-              subD: 101014,
-              E: 0,
-              subE: 101015
-            },
-            {
-              name: 'Hermoine',
-              rank: 3,
-              score: 3,
-              A: 1,
-              subA: 101021,
-              B: 1,
-              subB: 101022,
-              C: 0,
-              subC: 101023,
-              D: 1,
-              subD: 101024,
-              E: 0,
-              subE: 101025
-            },
-        ]; 
+  computed: mapGetters(['headers', 'values', 'search', 'problems']),
+  methods: {
+      filterOnly(value, search,item) {
+        if(search[0] == 'N') {
+          search = search.slice(2);
+          value = value.toString();
+          search = search.toString();
+          value.toLowerCase();
+          search.toLowerCase();
+          return value != null &&
+          search != null &&
+          typeof value === 'string' &&
+          value.toString().indexOf(search) !== -1
+        }
+        else if(search[0] == 'P') {
+          search = search.slice(2);
+          search = search.toString();
+          return search && item[search]? true : false;
+        }
+      },
   }
 };
 </script>
+

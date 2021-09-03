@@ -12,6 +12,7 @@
 import Editor from './Editor.vue'
 import SubDetail from './SubDetail.vue'
 import TestCases from './TestCases.vue'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Submission',
 
@@ -20,123 +21,7 @@ export default {
     SubDetail,
     TestCases
   },
-
-  data: () => ({
-      subHeaders: [],
-      subDetails: [],
-      testHeaders: [],
-      testDetails: [],
-      code: '#include<bits/stdc++.h>\nusing namespace std;\nint main() {\n \treturn 0; \n}',
-      cmOptions: {
-        tabSize: 4,
-        mode: 'text/x-c++src',
-        theme: 'base16-dark',
-        lineNumbers: true,
-        readOnly: 'nocursor',
-        line: true,
-      }
-  }),
-  created() {
-    this.testHeaders = [
-            {
-              text: 'Test case ID',
-              value: 'tcid'
-            },
-            {
-              text: 'Status',
-              value: 'status'
-            },
-            {
-              text: 'Time',
-              value: 'time'
-            },
-            {
-              text: 'Memory',
-              value: 'memory'
-            }
-    ];
-    this.testDetails = [
-            {
-              tcid: '0',
-              status: 'Correct Answer',
-              time: '220 ms',
-              memory: '7220 KiB'
-            },
-            {
-              tcid: '1',
-              status: 'Correct Answer',
-              time: '221 ms',
-              memory: '7210 KiB'
-            },
-            {
-              tcid: '2',
-              status: 'Correct Answer',
-              time: '22 ms',
-              memory: '720 KiB'
-            },
-            {
-              tcid: '3',
-              status: 'Correct Answer',
-              time: '228 ms',
-              memory: '7227 KiB'
-            },
-            {
-              tcid: '4',
-              status: 'Correct Answer',
-              time: '227 ms',
-              memory: '7229 KiB'
-            }
-    ];
-    const params = new URLSearchParams(window.location.search);
-
-    this.subHeaders = [
-            {
-              text: 'ID',
-              align: 'start',
-              value: 'id'
-            },
-            {
-              text: 'Submitted On',
-              value: 'subOn'
-            },
-            {
-              text: 'Submitted By',
-              value: 'subBy'
-            },
-            {
-              text: 'Problem',
-              value: 'problem'
-            },
-            {
-              text: 'Language',
-              value: 'lang'
-            },
-            {
-              text: 'Status',
-              value: 'status'
-            },
-            {
-              text: 'Time',
-              value: 'time'
-            },
-            {
-              text: 'Memory',
-              value: 'memory'
-            }
-    ];
-    this.subDetails = [
-            {
-              id: params.get('id'),
-              subOn: '14/08/2021, 19:59:55',
-              subBy: 'Rahul Dugar',
-              problem: 'Blizzard Blitz',
-              lang: 'C++',
-              status: 'Correct Answer',
-              time: '220 ms',
-              memory: '7552 KiB'
-            }
-    ]
-  }
+  computed: mapGetters(['subHeaders', 'subDetails', 'testHeaders', 'testDetails', 'cmOptions', 'code']),
 };
 </script>
 <style>
