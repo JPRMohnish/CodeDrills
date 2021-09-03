@@ -1,4 +1,4 @@
-# my-sc-board
+# m1
 
 ## Project setup
 ```
