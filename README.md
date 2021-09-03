@@ -36,7 +36,7 @@ https://user-images.githubusercontent.com/47176966/132056284-d176d5f1-c789-4afb-
 
 ### Submission Page
 - Test Cases Table
-- Submission Tanle
+- Submission Table
 - CodeMirror Code Syntax Highlighting feature
 
 
