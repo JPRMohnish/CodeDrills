@@ -24,7 +24,7 @@ npm start
 ## Project Specifications 
 
 ### Scoreboard Features
-
+Link http://localhost:8080/scoreboard?id=1234
 - Custom Sort
 - Filteration for problems and participants
 - Sort for every field
@@ -35,6 +35,7 @@ npm start
 https://user-images.githubusercontent.com/47176966/132056284-d176d5f1-c789-4afb-96ab-897af6466749.mov
 
 ### Submission Page
+Link http://localhost:8080/submission?id=1234
 - Test Cases Table
 - Submission Table
 - CodeMirror Code Syntax Highlighting feature
